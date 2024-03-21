@@ -22,7 +22,13 @@ Sample Usage
 ### Starting a web server on port 80
 
 ```bash
-$ docker run -d --name web-test -p 80:80 j796160836/simple-test-http
+docker run -d --name web-test -p 80:80 j796160836/simple-test-http
+```
+
+If you happen to run into `WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\n  exec /bin/sh: exec format error` add one of the pre-built platforms like this:
+
+```bash
+docker run --platform linux/arm64  -d -p 80:80 j796160836/simple-test-http
 ```
 
 You can now interact with this as if it were a dumb web server:
